@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订票</title>
+</head>
+<body>
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+        {% for passenger_object in passenger_list %}
+        <input type="checkbox" name="check_box_list" value={{passenger_object.idnum}}>
+<!--    这里“&nbsp;”表示空格。html代码中的空格换行都不会被打印到网页上。换行用<br>    -->
+
+        {{passenger_object.name}}&nbsp;&nbsp;&nbsp;
+        身份证号：{{passenger_object.idnum}}&nbsp;&nbsp;&nbsp;
+        手机号：{{passenger_object.telnum}}<br>
+        <select name="classtypes" >
+            <option value="firstclass">头等舱</option>
+            <option value="econmclass">经济舱</option>
+        </select>
+        <br>
+        <script>
+            document.getElementByName("classtypes").name
+        </script>
+        {% endfor %}
+
+        <button type="submit" class="btn">确认订票</button>
+
+    </form>
+
+
+</body>
+</html>

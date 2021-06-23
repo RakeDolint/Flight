@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>航班搜索</title>
+</head>
+<body>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>出发日期: <input type="date" name="dep_day" value={{cur_time}} min={{cur_time}}></p>
+    <p>出发城市: <input type="text" name="dep_city"></p>
+    <p>到达城市: <input type="text" name="arr_city"></p>
+    <select name="InWhatOrder">
+        <option value="ByTime" selected>按出发时间排序</option>
+        <option value="ByFirstPrice">按头等舱价格排序</option>
+        <option value="ByEconoPrice">按经济舱价格排序</option>
+    </select>
+    <button type="submit" class="btn">查询</button>
+
+</form>
+</body>
+</html>

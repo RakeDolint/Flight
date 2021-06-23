@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索结果</title>
+</head>
+<body>
+
+<table border="1" class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th>航班号</th>
+        <th>出发日期</th>
+        <th>出发时刻</th>
+        <th>到达时刻</th>
+        <th>出发机场</th>
+        <th>到达机场</th>
+        <th>经停机场</th>
+        <th>头等舱数量</th>
+        <th>头等舱价格</th>
+        <th>经济舱数量</th>
+        <th>经济舱价格</th>
+        <th>飞机型号</th>
+        <th>航程</th>
+        <th>航空公司</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for flight_object in flight_list %}
+    <tr>
+        <td>{{flight_object.flight_id}}</td>
+        <td>{{flight_object.departure_day}}</td>
+        <td>{{flight_object.departure_time}}</td>
+        <td>{{flight_object.arrival_time}}</td>
+        <td>{{flight_object.departure_airport}}</td>
+        <td>{{flight_object.arrival_airport}}</td>
+        <td>{{flight_object.stopover_airport}}</td>
+        <td>{{flight_object.first_class_num}}</td>
+        <td>{{flight_object.first_class_price}}</td>
+        <td>{{flight_object.economy_class_num}}</td>
+        <td>{{flight_object.economy_class_price}}</td>
+        <td>{{flight_object.aircraft_type}}</td>
+        <td>{{flight_object.voyage}}</td>
+        <td>{{flight_object.company}}</td>
+        <td>
+            <a href="/flights/booking/?flightid={{flight_object.id}}">订票</a>
+        </td>
+
+
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
